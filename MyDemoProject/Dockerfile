@@ -20,5 +20,8 @@ COPY --from=build /app/out ./
 # Expose the port that the application will run on
 EXPOSE 80
 
+# Force Kestrel to listen on port 80
+ENV ASPNETCORE_URLS=http://0.0.0.0:80
+
 # Start the application
 ENTRYPOINT ["dotnet", "MyDemoProject.dll"]
